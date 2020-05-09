@@ -1,6 +1,6 @@
 class Semgrep < Formula
   include Language::Python::Virtualenv
-  
+
   desc "Easily detect and prevent bugs and anti-patterns in your codebase”"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep/archive/v0.6.1.tar.gz"
@@ -83,7 +83,7 @@ class Semgrep < Formula
       venv.pip_install_and_link buildpath/python_path
     end
   end
-  
+
   test do
     system "#{bin}/semgrep", "--help"
     (testpath/"script.py").write <<~EOS
