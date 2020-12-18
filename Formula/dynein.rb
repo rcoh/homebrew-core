@@ -16,7 +16,6 @@ class Dynein < Formula
     require "open3"
     assert_match "admin", shell_output("#{bin}/dynein --help")
     assert_match "admin", shell_output("#{bin}/dy --help")
-    _, stderr = Open3.capture3("#{bin}/dy", "ls")
-    assert_match "Couldn't find AWS credentials", stderr
+    assert_match "Couldn't find AWS credentials", shell_output("#{bin}/dy ls &> /dev/stdout")
   end
 end
